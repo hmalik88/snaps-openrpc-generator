@@ -12,17 +12,13 @@
     "build/**/*",
     ".node-version"
   ],
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/open-rpc/schema-utils-js.git"
-  },
   "scripts": {
     "start": "npm run build && node ./build/index.js",
     "test": "npm run test:lint && npm run test:unit",
     "test:unit": "jest --coverage",
     "test:lint": "tslint -c tslint.json 'src/**/*.ts' --fix",
     "build": "tsc && npm run build:snap && mkdir -p dist && cp bundle.js dist/. && cp package.json dist/.",
-    "build:snap": "snap build",
+    "build:snap": "mm-snap build -s build/index.js",
     "watch:build": "tsc --watch",
     "watch:test": "jest --watch",
     "serve": "npx serve -p 8081 dist"
@@ -51,7 +47,6 @@
       "url": "http://localhost:8081/bundle.js"
     },
     "initialPermissions": {
-      "alert": {}
     }
   }
 }
