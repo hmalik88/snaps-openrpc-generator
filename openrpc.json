@@ -7,13 +7,24 @@
   "methods": [
     {
       "name": "hello",
+      "description": "a method that returns world",
       "params": [],
       "result": {
         "name": "helloWorldResult",
         "schema": {
           "type": "string"
         }
-      }
+      },
+      "examples": [
+        {
+          "name": "helloWorldExample",
+          "params": [],
+          "result": {
+            "name": "world",
+            "value": "world"
+          }
+        }
+      ]
     }
   ]
 }

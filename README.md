@@ -16,36 +16,66 @@ Generate High end snaps in a snap.
   </span>
 </center>
 
-
 A Generator tool for creating [Metamask Snaps](https://github.com/MetaMask/snaps-cli) using [open-rpc](https://github.com/open-rpc/spec) APIs.
 
-[Getting Started Video (Demo)](https://www.youtube.com/watch?v=46nJ4AWHmvw)
-
+It does this via an [OpenRPC Generator Custom Component](https://github.com/open-rpc/generator#custom-component-generation-configuration).
 
 ## Features:
 
 - Can generate:
-  - Clients for accessing your snap
   - Documentation
   - Snap Scaffold with strongly typed interfaces
+  - Clients for accessing your snap **(Not Implemented)**
 
-
-## Install
-
-```shell
-$ npm install -g @xops.net/snaps-openrpc-generator
-```
-
-## Usage
-
-### Using it in your project
+# In a new project
 
 Make a new folder for your Snap project
 ```shell
 $ mkdir MySnap && cd MySnap
 ```
 
+```
+npm init
+```
+
+## Install
+
+```shell
+$ npm install @open-rpc/generator @xops.net/snaps-openrpc-generator --save-dev
+```
+
+## Usage
+
+### Create a generator config
+
+###### open-rpc-generator-config.json
+```json
+{
+  "openrpcDocument": "./openrpc.json",
+  "outDir": "./generated",
+  "components": [
+      {
+        "type": "custom",
+        "name": "snap-openrpc-generator",
+        "language": "typescript",
+        "customComponent": "@xops.net/snaps-openrpc-generator/build/components/snap",
+        "customType": "snap"
+      },
+      {
+        "type": "custom",
+        "name": "snap-docs-openrpc-generator",
+        "language": "docs",
+        "customComponent": "@xops.net/snaps-openrpc-generator/build/components/docs",
+        "customType": "docs"
+    }
+  ]
+}
+```
+
 Write an OpenRPC Document that describes your plugins interface, and includes any documentation, examples, etc you may want. You can start with one of the [OpenRPC examples](http://github.com/open-rpc/examples), write your own with the help of the [OpenRPC Playground](playground.open-rpc.org), or start from the hello world snap:
+
+
+###### open-rpc.json
 ```shell
 echo '{
   "openrpc": "1.2.4",
@@ -56,6 +86,7 @@ echo '{
   "methods": [
     {
       "name": "hello",
+      "description": "a method that returns world",
       "params": [],
       "result": {
         "name": "helloWorldResult",
@@ -78,25 +109,24 @@ echo '{
 }' > openrpc.json
 ```
 
-Create a generator config file
+
+#### Install OpenRPC Generator
+
 
 ```shell
-$ snaps-openrpc-generator init
+$ npm install -g @open-rpc/generator
 ```
 
-Generate artifacts based on your config
-
 ```shell
-$ snaps-openrpc-generator generate -c open-rpc-generator-config.json
+$ openrpc-generator generate -c open-rpc-generator-config.json
 ```
 
-To build the snaps plugin:
+To run the generated snap:
 
 ```shell
-cd snap
+cd generated/custom/typescript
 npm install .
-npm run build
-npm run serve
+npm start
 ```
 
 The resulting plugin is now at at `http://localhost:8081` and which hosts the `package.json` and `bundle.js` needed for snaps.
@@ -105,7 +135,7 @@ To build the documentation:
 
 cd into `docs` directory, install and start
 ```shell
-cd docs
+cd generated/custom/docs
 npm install .
 npm start
 ```
@@ -115,11 +145,11 @@ you can now open http://localhost:8000 and view your generated, interactive docu
 <img width="1676" alt="snaps2" src="https://user-images.githubusercontent.com/364566/74609561-7cfe7480-50a8-11ea-950a-139cf26ad138.png">
 
 and play around with the interactive api documentation at http://localhost:8000/api-documentation
-<img width="1394" alt="demo_thing" src="https://user-images.githubusercontent.com/364566/74609566-87207300-50a8-11ea-8f41-eaf27625da16.png">
-
+![image](https://user-images.githubusercontent.com/364566/131185096-e3bc48f5-1140-4e3c-ae09-cd47fa4552a6.png)
 
 
 ## Resources
 
+- [Getting Started Video (Demo) - EthDenver Hackathon 2020](https://www.youtube.com/watch?v=46nJ4AWHmvw) - outdated on build steps but still really useful resource
 - [@open-rpc/generator package](https://www.npmjs.com/package/@open-rpc/generator)
 - [example open-rpc documents](https://github.com/open-rpc/examples/tree/master/service-descriptions)
