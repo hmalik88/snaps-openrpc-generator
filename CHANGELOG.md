@@ -1,3 +1,10 @@
+## [1.17.1](https://github.com/xops/snaps-openrpc-generator/compare/1.17.0...1.17.1) (2021-08-27)
+
+
+### Bug Fixes
+
+* update readme ([b586614](https://github.com/xops/snaps-openrpc-generator/commit/b586614b07aa4a438534cec0faeeec166d199152))
+
 # [1.17.0](https://github.com/xops/snaps-openrpc-generator/compare/1.16.3...1.17.0) (2021-08-27)
 
 
