@@ -1,3 +1,19 @@
+# [1.17.0](https://github.com/xops/snaps-openrpc-generator/compare/1.16.3...1.17.0) (2021-08-27)
+
+
+### Bug Fixes
+
+* **README:** api-docs link ([c355cf0](https://github.com/xops/snaps-openrpc-generator/commit/c355cf07e8133f96a85dc217605f806399f9b647))
+* **README:** finish getting started steps ([21b7eda](https://github.com/xops/snaps-openrpc-generator/commit/21b7eda8c4f502fa83cd136d0a2f91c8dae7741b))
+* add getting started video ([89f2e51](https://github.com/xops/snaps-openrpc-generator/commit/89f2e513ad24bc751b975c960faf8d51eeb43c57))
+* improve docs ([c9a7e27](https://github.com/xops/snaps-openrpc-generator/commit/c9a7e2758eb6894d4ddebd81c9a661cae7cc8c14))
+* readme ([cf78485](https://github.com/xops/snaps-openrpc-generator/commit/cf78485dd64d9537128680ae5b78e61bfdfe8802))
+
+
+### Features
+
+* convert to custom component generator ([b1292f6](https://github.com/xops/snaps-openrpc-generator/commit/b1292f661717b7ece87958025a261c83eca96cf1))
+
 ## [1.16.3](https://github.com/xops/snaps-openrpc-generator/compare/1.16.2...1.16.3) (2020-02-16)
 
 
