@@ -41,7 +41,7 @@ npm init
 ## Install
 
 ```shell
-$ npm install @open-rpc/generator @xops.net/snaps-openrpc-generator --save-dev
+$ npm install @xops.net/snaps-openrpc-generator --save-dev
 ```
 
 ## Usage
@@ -49,8 +49,8 @@ $ npm install @open-rpc/generator @xops.net/snaps-openrpc-generator --save-dev
 ### Create a generator config
 
 ###### open-rpc-generator-config.json
-```json
-{
+```shell
+echo '{
   "openrpcDocument": "./openrpc.json",
   "outDir": "./generated",
   "components": [
@@ -69,7 +69,7 @@ $ npm install @open-rpc/generator @xops.net/snaps-openrpc-generator --save-dev
         "customType": "docs"
     }
   ]
-}
+}' > open-rpc-generator-config.json
 ```
 
 Write an OpenRPC Document that describes your plugins interface, and includes any documentation, examples, etc you may want. You can start with one of the [OpenRPC examples](http://github.com/open-rpc/examples), write your own with the help of the [OpenRPC Playground](playground.open-rpc.org), or start from the hello world snap:
@@ -118,7 +118,7 @@ $ npm install -g @open-rpc/generator
 ```
 
 ```shell
-$ openrpc-generator generate -c open-rpc-generator-config.json
+$ open-rpc-generator generate -c open-rpc-generator-config.json
 ```
 
 To run the generated snap:
