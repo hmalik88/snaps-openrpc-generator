@@ -1,11 +1,11 @@
 {
-  "name": "templated-server",
-  "private": false,
+  "name": "my-snap",
+  "private": true,
   "version": "0.0.0",
   "description": "",
   "repository": {
     "type": "git",
-    "url": "https://github.com/open-rpc/generator-client.git"
+    "url": "https://github.com/my-org/my-snap.git"
   },
   "main": "./build/index.js",
   "files": [
@@ -13,33 +13,26 @@
     ".node-version"
   ],
   "scripts": {
-    "start": "npm run build && node ./build/index.js",
+    "start": "npm run build && npm run serve",
     "test": "npm run test:lint && npm run test:unit",
     "test:unit": "jest --coverage",
     "test:lint": "tslint -c tslint.json 'src/**/*.ts' --fix",
-    "build": "tsc && npm run build:snap && mkdir -p dist && cp bundle.js dist/. && cp package.json dist/.",
+    "build": "tsc && npm run build:snap",
     "build:snap": "mm-snap build -s build/index.js",
     "watch:build": "tsc --watch",
     "watch:test": "jest --watch",
-    "serve": "npx serve -p 8081 dist"
+    "serve": "mm-snap serve"
   },
   "author": "",
-  "license": "Apache-2.0",
   "dependencies": {
-    "snaps-cli": "^0.4.1",
-    "@open-rpc/server-js": "^1.5.2"
   },
   "devDependencies": {
+    "snaps-cli": "^0.4.2",
     "@open-rpc/meta-schema": "^1.6.0",
     "@types/jest": "25.1.0",
-    "@types/connect": "^3.4.33",
-    "@types/cors": "^2.8.6",
     "jest": "^25.1.0",
     "ts-jest": "25.0.0",
-    "tslint": "6.0.0",
-    "typescript": "3.7.5",
-    "webpack": "^4.31.0",
-    "webpack-cli": "^3.3.2"
+    "typescript": "3.7.5"
   },
   "web3Wallet": {
     "bundle": {
@@ -47,6 +40,7 @@
       "url": "http://localhost:8081/bundle.js"
     },
     "initialPermissions": {
+      "snap_confirm": {}
     }
   }
 }

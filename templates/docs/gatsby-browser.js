@@ -1,3 +1,4 @@
+
 /**
  * Implement Gatsby's Browser APIs in this file.
  *
@@ -5,3 +6,9 @@
  */
 
 // You can delete this file if you're not using it
+import React from 'react';
+import { ReusableProvider } from 'reusable';
+
+export const wrapRootElement = ({ element }) => (
+  <ReusableProvider>{element}</ReusableProvider>
+);

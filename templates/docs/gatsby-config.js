@@ -28,12 +28,12 @@ module.exports = {
     ]
   },
   plugins: [
-    "@etclabscore/gatsby-theme-pristine",
+    '@xops.net/gatsby-openrpc-theme',
     {
       resolve: 'gatsby-plugin-manifest',
       options: {
-        name: 'pristine-site',
-        short_name: 'pristine-site',
+        name: 'site',
+        short_name: 'site',
         start_url: '/',
         background_color: 'transparent',
         theme_color: '#3f51b5',

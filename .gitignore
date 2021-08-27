@@ -6,4 +6,4 @@ coverage
 ./docs
 .DS_Store
 test
-generated
+generated*
