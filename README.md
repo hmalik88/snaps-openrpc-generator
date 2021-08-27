@@ -24,7 +24,7 @@ It does this via an [OpenRPC Generator Custom Component](https://github.com/open
 
 - Can generate:
   - Documentation
-  - Snap Scaffold with strongly typed interfaces
+  - Snap Scaffold with strongly typed interfaces and service discovery via [rpc.discover](https://spec.open-rpc.org/#service-discovery-method)
   - Clients for accessing your snap **(Not Implemented)**
 
 # In a new project
