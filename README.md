@@ -41,7 +41,7 @@ npm init
 ## Install
 
 ```shell
-$ npm install @xops.net/snaps-openrpc-generator --save-dev
+$ npm install @xops.net/snaps-openrpc-generator @open-rpc/generator --save-dev
 ```
 
 ## Usage
@@ -110,15 +110,11 @@ echo '{
 ```
 
 
-#### Install OpenRPC Generator
+#### Run the OpenRPC Generator
 
 
 ```shell
-$ npm install -g @open-rpc/generator
-```
-
-```shell
-$ open-rpc-generator generate -c open-rpc-generator-config.json
+$ npx open-rpc-generator generate -c open-rpc-generator-config.json
 ```
 
 To run the generated snap:
