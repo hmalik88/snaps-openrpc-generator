@@ -39,19 +39,19 @@ const hooks: components.IHooks = {
         currPkgStr = await readFile(destPath, "utf8");
         const currPkg = JSON.parse(currPkgStr);
         tmplPkg = {
-          ...tmplPkg,
           ...currPkg,
+          ...tmplPkg,
           scripts: {
-            ...tmplPkg.scripts,
             ...currPkg.scripts,
+            ...tmplPkg.scripts,
           },
           dependencies: {
-            ...tmplPkg.dependencies,
             ...currPkg.dependencies,
+            ...tmplPkg.dependencies,
           },
           devDependencies: {
-            ...tmplPkg.devDependencies,
             ...currPkg.devDependencies,
+            ...tmplPkg.devDependencies,
           },
         };
       } catch (e) {
