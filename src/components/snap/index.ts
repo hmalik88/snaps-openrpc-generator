@@ -1,5 +1,5 @@
 import * as path from "path";
-import { move, ensureDir, remove } from "fs-extra";
+import { ensureDir, remove } from "fs-extra";
 import { components } from "@open-rpc/generator"
 
 import * as fs from "fs";
@@ -39,15 +39,15 @@ const hooks: components.IHooks = {
         currPkgStr = await readFile(destPath, "utf8");
         const currPkg = JSON.parse(currPkgStr);
         tmplPkg = {
-          ...currPkg,
           ...tmplPkg,
+          ...currPkg,
           dependencies: {
-            ...currPkg.dependencies,
             ...tmplPkg.dependencies,
+            ...currPkg.dependencies,
           },
           devDependencies: {
-            ...currPkg.devDependencies,
             ...tmplPkg.devDependencies,
+            ...currPkg.devDependencies,
           },
         };
       } catch (e) {
